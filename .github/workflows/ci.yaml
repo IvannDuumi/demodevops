@@ -19,12 +19,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Service A
+      - name: Build and Push Service A
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/services-a:${{ github.ref_name }} ./services-a
-          docker push ${{ secrets.DOCKER_USERNAME }}/services-a:${{ github.ref_name }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/service-a:${{ github.ref_name }} ./services-a
+          docker push ${{ secrets.DOCKER_USERNAME }}/service-a:${{ github.ref_name }}
 
-      - name: Build Service B
+      - name: Build and Push Service B
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/services-b:${{ github.ref_name }} ./services-b
-          docker push ${{ secrets.DOCKER_USERNAME }}/services-b:${{ github.ref_name }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/service-b:${{ github.ref_name }} ./services-b
+          docker push ${{ secrets.DOCKER_USERNAME }}/service-b:${{ github.ref_name }}
